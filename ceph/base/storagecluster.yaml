@@ -1,0 +1,7 @@
+---
+apiVersion: ocs.openshift.io/v1
+kind: StorageCluster
+metadata:
+  name: ocs-storagecluster
+spec:
+  monDataDirHostPath: /var/lib/rook

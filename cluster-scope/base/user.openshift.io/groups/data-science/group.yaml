@@ -1,0 +1,17 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+  name: data-science
+users:
+  - aakankshaduggal
+  - antter
+  - chauhankaranraj
+  - durandom
+  - goern
+  - michaelclifford
+  - oindrillac
+  - pacospace
+  - sankbad
+  - schwesig
+  - shreyanand
+  - suppathak

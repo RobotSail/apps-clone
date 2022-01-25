@@ -1,0 +1,11 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+    name: octo-ushift-dev
+users:
+    - fzdarsky
+    - cooktheryan
+    - oglok
+    - screeley44
+    - michaelclifford
+    - treeinrandomforest

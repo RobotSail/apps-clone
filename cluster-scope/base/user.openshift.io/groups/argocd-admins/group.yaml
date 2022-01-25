@@ -1,0 +1,13 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+  name: argocd-admins
+users:
+  - anishasthana
+  - 4n4nd
+  - dystewart
+  - Gregory-Pereira
+  - humairak
+  - larsks
+  - tumido
+  - naved001
