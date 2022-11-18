@@ -12,7 +12,7 @@ All manifests found through this repo are deployed by our [ArgoCD][argocd_instan
 
 ## Documentation
 
-All documentation can be found [here][docs].
+All documentation can be found [here][./docs].
 
 ## What is an "App"?
 
