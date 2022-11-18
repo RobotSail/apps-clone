@@ -1,0 +1,55 @@
+---
+# Source: dokkuwiki/charts/dokuwiki/templates/deployment.yaml
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: *CONTAINER_NAME*-dokuwiki
+spec:
+  selector:
+    matchLabels:
+      service: *SERVICE_NAME*
+  serviceName: *SERVICE_NAME*
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        service: *SERVICE_NAME*
+    spec:
+      containers:
+        - name: *CONTAINER_NAME*
+          *DOT_FILE*
+          *CONTAINER_IMAGE*
+          livenessProbe:
+            httpGet:
+              path: /bspwiki
+              port: 80
+          ports:
+            - containerPort: 80
+          volumeMounts:
+          - name: dockuwiki-data
+            mountPath: /bitnami/dokuwiki/data
+            subPath: data
+          - name: dockuwiki-conf
+            mountPath: /bitnami/dokuwiki/conf
+            subPath: conf
+          - name: dockuwiki-plugins
+            mountPath: /bitnami/dokuwiki/dokuwiki/lib/plugins
+            subPath: lib-plugins
+          - name: dockuwiki-data-pages
+            mountPath: /bitnami/dokuwiki/data/pages
+          - name: dockuwiki-conf-local
+            mountPath: /bitnami/dokuwiki/conf/local.php
+            subPath: local-php
+          - name: dockuwiki-conf-acl
+            mountPath: /bitnami/dokuwiki/conf/acl.auth.php
+            subPath: acl-auth-php
+      volumes:
+        - name: dockuwiki-data
+          persistentVolumeClaim:
+            claimName: *SERVICE_NAME*-dokuwiki-data-claim
+        - name: dockuwiki-conf
+          persistentVolumeClaim:
+            claimName: *SERVICE_NAME*-dokuwiki-conf-claim
+        - name: dockuwiki-plugins
+          persistentVolumeClaim:
+            claimName: *SERVICE_
