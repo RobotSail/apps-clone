@@ -1,0 +1,9 @@
+
+NOTE: Ensure the name of your "wiki-pv-claim" is the same in your YAML.
+
+echo "${1}" > ~/rpmbuild/SOURCES/wiki-pv-claim.yaml
+
+cat <<
+
+# this is a change
+this is another one
